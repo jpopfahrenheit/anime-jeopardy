@@ -1,0 +1,17 @@
+{
+  "titulo": "Naruto",
+  "categorias": [
+    {
+      "nombre": "Personajes",
+      "preguntas": [
+        {
+          "valor": 100,
+          "pregunta": "¿Quién es el Hokage número 7?",
+          "respuesta": "Naruto Uzumaki",
+          "video": "naruto1.mp4",
+          "audio": "tema.mp3"
+        }
+      ]
+    }
+  ]
+}

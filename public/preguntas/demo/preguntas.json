@@ -1,0 +1,11 @@
+{
+  "categorias": [
+    {
+      "nombre": "Personajes",
+      "preguntas": [
+        { "valor": 100, "pregunta": "¿Quién es Goku?", "respuesta": "Saiyajin" },
+        { "valor": 200, "pregunta": "¿Quién es Naruto?", "respuesta": "Ninja" }
+      ]
+    }
+  ]
+}
