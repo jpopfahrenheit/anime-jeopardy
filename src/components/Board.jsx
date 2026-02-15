@@ -15,6 +15,7 @@ export default function Board({ volver }) {
   if (!data) return <h2>Cargando...</h2>;
 
   const categorias = data.categorias;
+  const cantidadFilas = Math.max(...categorias.map(cat => cat.preguntas.length));
 
   return (
     <div style={{ textAlign: "center" }}>
@@ -35,7 +36,7 @@ export default function Board({ volver }) {
         </thead>
 
         <tbody>
-          {[0, 1].map((fila) => (
+          {Array.from({ length: cantidadFilas }).map((_, fila) => (
             <tr key={fila}>
               {categorias.map((cat) => {
                 const pregunta = cat.preguntas[fila];

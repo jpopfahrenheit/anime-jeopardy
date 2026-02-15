@@ -4,7 +4,16 @@
       "nombre": "Personajes",
       "preguntas": [
         { "valor": 100, "pregunta": "¿Quién es Goku?", "respuesta": "Saiyajin" },
-        { "valor": 200, "pregunta": "¿Quién es Naruto?", "respuesta": "Ninja" }
+        { "valor": 200, "pregunta": "¿Quién es Naruto?", "respuesta": "Ninja" },
+        { "valor": 300, "pregunta": "¿Quién es Luffy?", "respuesta": "Pirata" },
+        { "valor": 400, "pregunta": "¿Quién es Ash?", "respuesta": "Entrenador Pokémon" },
+        { "valor": 500, "pregunta": "¿Quién es Sailor Moon?", "respuesta": "Guerrera mágica" },
+        { "valor": 600, "pregunta": "¿Quién es Edward Elric?", "respuesta": "Alquimista" },
+        { "valor": 700, "pregunta": "¿Quién es Light Yagami?", "respuesta": "Portador de la Death Note" },
+        { "valor": 800, "pregunta": "¿Quién es Mikasa Ackerman?", "respuesta": "Soldado del Cuerpo de Exploración" },
+        { "valor": 900, "pregunta": "¿Quién es Gintoki Sakata?", "respuesta": "Samurái" },
+        { "valor": 1000, "pregunta": "¿Quién es Kenshin Himura?", "respuesta": "Samurái vagabundo" }
+
       ]
     }
   ]
