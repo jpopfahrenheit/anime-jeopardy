@@ -1,0 +1,82 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+  background-color: #102c6b;
+  padding: 60px;
+  border-radius: 20px;
+  width: 75vw;
+  max-width: 1100px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.modal-value {
+  font-size: 2rem;
+  color: gold;
+  margin-bottom: 20px;
+}
+
+.modal-question {
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
+
+.modal-answer {
+  font-size: 2.5rem;
+  margin: 30px 0;
+  color: #00ffcc;
+  animation: reveal 0.4s ease-in-out;
+}
+
+.modal-button {
+  font-size: 1.3rem;
+  padding: 12px 35px;
+  margin: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #1e3fa3;
+  color: white;
+  transition: 0.2s;
+}
+
+.modal-button:hover {
+  background-color: #2a56d4;
+}
+
+.modal-button.reveal {
+  background-color: #d4a017;
+  color: black;
+}
+
+.modal-button.close {
+  background-color: #444;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

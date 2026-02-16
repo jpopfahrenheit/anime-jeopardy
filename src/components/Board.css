@@ -1,0 +1,90 @@
+.board-container {
+  padding: 20px;
+  text-align: center;
+}
+
+/* ---------- HEADER ---------- */
+
+.board-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.board-title {
+  font-size: 3rem;
+  color: gold;
+  margin: 0;
+}
+
+.header-spacer {
+  position: absolute;
+  left: 20px;
+}
+
+.header-logo {
+  position: absolute;
+  right: 20px;
+}
+
+.board-logo {
+  max-height: 90px;
+  object-fit: contain;
+}
+
+/* ---------- GRID ---------- */
+
+.board-grid {
+  display: grid;
+  gap: 6px;
+  width: 95vw;
+  height: calc(100vh - 180px);
+  margin: auto;
+}
+
+/* ---------- CATEGORY ---------- */
+
+.category {
+  background-color: #102c6b;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  text-align: center;
+  word-break: break-word;
+}
+
+/* ---------- CELLS ---------- */
+
+.cell {
+  background-color: #1e3fa3;
+  font-size: 2rem;
+  font-weight: bold;
+  color: gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.cell:not(.locked):not(.used):hover {
+  background-color: #2a56d4;
+  transform: scale(1.05);
+}
+
+.cell.locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.cell.used {
+  background-color: #0b1c3d;
+  color: transparent;
+  cursor: default;
+}

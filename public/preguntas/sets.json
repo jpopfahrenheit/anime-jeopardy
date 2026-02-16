@@ -1,0 +1,10 @@
+[
+  {
+    "id": "demo",
+    "nombre": "Demo General"
+  },
+  {
+    "id": "demo_copy",
+    "nombre": "Lo mismo pero con otro nombre"
+  }
+]

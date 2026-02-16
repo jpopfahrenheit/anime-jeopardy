@@ -1,40 +1,43 @@
+import { useState } from "react";
+import "./QuestionModal.css";
+
 export default function QuestionModal({ pregunta, onClose }) {
+  const [mostrarRespuesta, setMostrarRespuesta] = useState(false);
+
   if (!pregunta) return null;
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        backgroundColor: "rgba(0,0,0,0.7)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <div
-        style={{
-          background: "white",
-          padding: "30px",
-          borderRadius: "10px",
-          textAlign: "center",
-          maxWidth: "600px",
-        }}
-      >
-        <h2>{pregunta.pregunta}</h2>
+    <div className="modal-overlay">
+      <div className="modal-content">
 
-        <button
-          onClick={() => alert("Respuesta: " + pregunta.respuesta)}
-          style={{ margin: "10px" }}
-        >
-          Mostrar Respuesta
+        <div className="modal-value">
+          {pregunta.valor}
+        </div>
+
+        <h2 className="modal-question">
+          {pregunta.pregunta}
+        </h2>
+
+        {!mostrarRespuesta ? (
+          <button
+            className="modal-button reveal"
+            onClick={() => setMostrarRespuesta(true)}
+          >
+            Mostrar Respuesta
+          </button>
+        ) : (
+          <div className="modal-answer">
+            {pregunta.respuesta}
+          </div>
+        )}
+
+        <button className="modal-button close" onClick={() => {
+          setMostrarRespuesta(false);
+          onClose();
+        }}>
+          Cerrar
         </button>
 
-        <br />
-        <button onClick={onClose}>Cerrar</button>
       </div>
     </div>
   );

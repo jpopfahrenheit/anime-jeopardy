@@ -1,0 +1,66 @@
+/* Estilos consolidados extraídos de estilos inline */
+
+/* App */
+.app-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.btn-large {
+  font-size: 20px;
+  padding: 10px 20px;
+}
+
+/* Board */
+.board-container {
+  text-align: center;
+}
+
+.jeopardy-table {
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.jeopardy-th {
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.jeopardy-td {
+  border: 2px solid black;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.btn {
+  margin-top: 12px;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+}
+
+.modal-button {
+  margin: 10px;
+}
