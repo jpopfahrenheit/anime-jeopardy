@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function ConfigPanel({ onStart }) {
-  const [nombreJuego, setNombreJuego] = useState("Jeopardy Anime");
+  const [nombreJuego, setNombreJuego] = useState("Jornadas del Manga y el Anime");
   const [sets, setSets] = useState([]);
   const [setSeleccionado, setSetSeleccionado] = useState("");
   const [cantidadEquipos, setCantidadEquipos] = useState(2);
@@ -141,6 +141,32 @@ export default function ConfigPanel({ onStart }) {
       >
         🎮 Iniciar Partida
       </button>
+
+      <button
+        style={{
+          marginTop: "15px",
+          backgroundColor: "#aa0000",
+          color: "white",
+          padding: "10px 20px",
+          border: "none",
+          borderRadius: "6px",
+          cursor: "pointer"
+        }}
+        onClick={() => {
+          const confirmar = window.confirm(
+            "¿Seguro que querés borrar la partida guardada?\nSe eliminará todo el progreso."
+          );
+
+          if (confirmar) {
+            localStorage.removeItem("jeopardyPartida");
+            window.location.reload();
+          }
+        }}
+
+      >
+        🗑 Reset Partida
+      </button>
+
 
     </div>
   );

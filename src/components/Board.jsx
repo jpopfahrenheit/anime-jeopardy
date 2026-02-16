@@ -2,18 +2,17 @@ import QuestionModal from "./QuestionModal";
 import { useEffect, useState } from "react";
 import "./Board.css";
 
-export default function Board({ volver, config }) {
+export default function Board({ volver, config, progresoInicial }) {
 
-  const [mostrarConfirmacion, setMostrarConfirmacion] = useState(false);
   const [preguntaActiva, setPreguntaActiva] = useState(null);
   const [data, setData] = useState(null);
-  const [progreso, setProgreso] = useState({});
+  const [progreso, setProgreso] = useState(progresoInicial || {});
 
   // 🔹 Atajo secreto: Ctrl + Shift + B
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "b") {
-        setMostrarConfirmacion(true);
+        volver(); // vuelve directo, sin confirmación
       }
     };
 
@@ -23,10 +22,25 @@ export default function Board({ volver, config }) {
 
   // 🔹 Cargar preguntas
   useEffect(() => {
+    if (!config?.archivoPreguntas) return;
+
     fetch(`/preguntas/${config.archivoPreguntas}.json`)
       .then((res) => res.json())
       .then((json) => setData(json));
   }, [config]);
+
+
+  // 🔹 Guardado automático
+  useEffect(() => {
+    if (!config) return;
+
+    const dataGuardar = {
+      config,
+      progreso
+    };
+
+    localStorage.setItem("jeopardyPartida", JSON.stringify(dataGuardar));
+  }, [progreso, config]);
 
   if (!data) return <h2 style={{ color: "white" }}>Cargando...</h2>;
 
@@ -62,14 +76,12 @@ export default function Board({ volver, config }) {
           gridTemplateColumns: `repeat(${categorias.length}, 1fr)`
         }}
       >
-        {/* FILA DE CATEGORÍAS */}
         {categorias.map((cat) => (
           <div key={cat.nombre} className="category">
             {cat.nombre}
           </div>
         ))}
 
-        {/* FILAS DE PREGUNTAS */}
         {Array.from({ length: cantidadFilas }).map((_, fila) =>
           categorias.map((cat, colIndex) => {
             const pregunta = cat.preguntas[fila];
@@ -106,32 +118,6 @@ export default function Board({ volver, config }) {
         duracion={config.timerDuracion}
         onClose={() => setPreguntaActiva(null)}
       />
-
-
-      {/* 🔹 Popup Confirmación Volver */}
-      {mostrarConfirmacion && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <h2 style={{ marginBottom: "30px" }}>
-              ¿Seguro que querés volver?
-            </h2>
-
-            <button
-              className="modal-button close"
-              onClick={() => setMostrarConfirmacion(false)}
-            >
-              Cancelar
-            </button>
-
-            <button
-              className="modal-button reveal"
-              onClick={() => volver()}
-            >
-              Confirmar
-            </button>
-          </div>
-        </div>
-      )}
 
     </div>
   );
