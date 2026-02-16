@@ -103,8 +103,10 @@ export default function Board({ volver, config }) {
 
       <QuestionModal
         pregunta={preguntaActiva}
+        duracion={config.timerDuracion}
         onClose={() => setPreguntaActiva(null)}
       />
+
 
       {/* 🔹 Popup Confirmación Volver */}
       {mostrarConfirmacion && (

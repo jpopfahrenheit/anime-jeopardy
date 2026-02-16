@@ -6,6 +6,8 @@ export default function ConfigPanel({ onStart }) {
   const [setSeleccionado, setSetSeleccionado] = useState("");
   const [cantidadEquipos, setCantidadEquipos] = useState(2);
   const [logoSeleccionado, setLogoSeleccionado] = useState("");
+  const [timerDuracion, setTimerDuracion] = useState(15);
+
 
   // Cargar sets.json al iniciar
   useEffect(() => {
@@ -29,8 +31,10 @@ export default function ConfigPanel({ onStart }) {
       nombreJuego,
       archivoPreguntas: setSeleccionado,
       cantidadEquipos,
-      logoSeleccionado
+      logoSeleccionado,
+      timerDuracion: timerDuracion || 15
     });
+
   };
 
   return (
@@ -114,6 +118,20 @@ export default function ConfigPanel({ onStart }) {
           </label>
         ))}
       </div>
+
+      {/* Duración del Timer */}
+      <div style={{ marginBottom: "20px" }}>
+        <label>Duración del timer (segundos):</label><br />
+        <input
+          type="number"
+          min="5"
+          max="60"
+          value={timerDuracion}
+          onChange={(e) => setTimerDuracion(Number(e.target.value))}
+          style={{ padding: "8px", width: "100px", marginTop: "5px" }}
+        />
+      </div>
+
 
       {/* Botón Iniciar */}
       <button

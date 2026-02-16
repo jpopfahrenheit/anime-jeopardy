@@ -80,3 +80,26 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+.modal-timer {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 20px 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.modal-timer.warning {
+  color: #ff4444;
+  animation: pulse 1s infinite;
+}
+
+.modal-timer.finish {
+  color: #ff0000;
+  animation: pulse 0.7s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
