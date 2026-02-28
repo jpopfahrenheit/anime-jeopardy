@@ -6,7 +6,18 @@ export default function Board({ volver, config, progresoInicial, irAPuntajes }) 
 
   const [preguntaActiva, setPreguntaActiva] = useState(null);
   const [data, setData] = useState(null);
-  const [progreso, setProgreso] = useState(progresoInicial || {});
+  const [progreso, setProgreso] = useState(() => {
+    const guardado = localStorage.getItem("jeopardyPartida");
+    if (guardado) {
+      try {
+        const data = JSON.parse(guardado);
+        return data.progreso || {};
+      } catch {
+        return {};
+      }
+    }
+    return {};
+  });
 
   // 🔹 Atajos teclado
   useEffect(() => {
@@ -64,7 +75,7 @@ export default function Board({ volver, config, progresoInicial, irAPuntajes }) 
 
       {/* HEADER SIN LOGO */}
       <div className="board-header" style={{ position: "relative" }}>
-        
+
         <h1 className="board-title">
           {config?.nombreJuego || "Jeopardy Anime"}
         </h1>

@@ -1,10 +1,14 @@
 [
   {
-    "id": "demo",
+    "id": "1",
     "nombre": "Demo General"
   },
   {
-    "id": "demo_copy",
+    "id": "2",
     "nombre": "Lo mismo pero con otro nombre"
+  },
+  {
+    "id": "3",
+    "nombre": "Para mejorar"
   }
 ]

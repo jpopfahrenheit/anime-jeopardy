@@ -1,0 +1,65 @@
+{
+  "categorias": [
+    {
+      "nombre": "Protagonistas",
+      "preguntas": [
+        { "valor": 200, "pregunta": "¿Quién es el protagonista de Dragon Ball?", "respuesta": "Goku" },
+        { "valor": 400, "pregunta": "¿Cómo se llama el joven ninja, cuyo mayor sueño es convertirse en Hokage?", "respuesta": "Naruto Uzumaki" },
+        { "valor": 600, "pregunta": "¿Quién busca convertirse en el Rey de los Piratas?", "respuesta": "Monkey D. Luffy" },
+        { "valor": 800, "pregunta": "¿Quién es el protagonista de Solo Leveling?", "respuesta": "Sung Jin-woo" },
+        { "valor": 1000, "pregunta": "¿Cuál es el nombre clave del espía que adopta la identidad de Loid Forger en Spy x Family?", "respuesta": "Twilight" }
+      ]
+    },
+    {
+      "nombre": "Villanos",
+      "preguntas": [
+        { "valor": 200, "pregunta": "¿Quién es el principal villano en Dragon Ball Z durante la saga de Namek?", "respuesta": "Freezer" },
+        { "valor": 400, "pregunta": "¿Quién lidera la Akatsuki en Naruto?", "respuesta": "Nagato (Pain)" },
+        { "valor": 600, "pregunta": "¿Cómo se llama el líder de la Liga de Villanos en My Hero Academia?", "respuesta": "Tomura Shigaraki" },
+        { "valor": 800, "pregunta": "¿Cuál es el nombre del hechicero más poderoso del pasado que habita el cuerpo de Itadori en Jujutsu Kaisen?", "respuesta": "Ryomen Sukuna" },
+        { "valor": 1000, "pregunta": "¿Cómo se llama el demonio de alto rango que lidera a las Doce Lunas Demoníacas en Demon Slayer?", "respuesta": "Muzan Kibutsuji" }
+
+      ]
+    },
+    {
+      "nombre": "Poderes y Habilidades",
+      "preguntas": [
+        { "valor": 200, "pregunta": "¿Cómo se llama la energía utilizada en Dragon Ball?", "respuesta": "Ki" },
+        { "valor": 400, "pregunta": "¿Qué técnica permite a Naruto crear copias de sí mismo?", "respuesta": " Jutsu: Clon de Sombra (Kage Bunshin no Jutsu)" },
+        { "valor": 600, "pregunta": "¿Cómo se llama el poder especial de los usuarios en My Hero Academia?", "respuesta": "Don (Kosei en japonés / Quirks en inglés)" },
+        { "valor": 800, "pregunta": "¿Cómo se llama la técnica de expansión de dominio de Satoru Gojo en Jujutsu Kaisen?", "respuesta": "Vacío Infinito / Vacío Inconmensurable / Vacío Ilimitado (Muryōkūsho)" },
+        { "valor": 1000, "pregunta": "En Solo Leveling, ¿cuál es la frase que usa Sung Jin-woo para revivir a los muertos como sus sombras?", "respuesta": "Surge (Arise)" }
+      ]
+    },
+    {
+  "nombre": "Colores",
+  "preguntas": [
+    { "valor": 200, "pregunta": "¿De qué color es la capa de Levi Ackerman en 'Attack on Titan'?", "respuesta": "Verde" },
+    { "valor": 400, "pregunta": "¿De qué color es el cabello de Jinx en 'Arcane'?", "respuesta": "Azul" },
+    { "valor": 600, "pregunta": "¿De qué color es el cabello de Izuku Midoriya en 'My Hero Academia'?", "respuesta": "Verde" },
+    { "valor": 800, "pregunta": "¿De qué color es el cabello de Bulma en 'Dragon Ball'?", "respuesta": "Azul" },
+    { "valor": 1000, "pregunta": "Dr. Stone ¿De qué color es el cabello de Senku Ishigami?", "respuesta": "Verde" }
+  ]
+},
+    {
+      "nombre": "Mundos y Lugares",
+      "preguntas": [
+        { "valor": 200, "pregunta": "¿Cómo se llama la aldea donde vive Naruto?", "respuesta": "Aldea Oculta de la Hoja (Konoha)" },
+        { "valor": 400, "pregunta": "¿Cómo se llama el mar inicial donde comienza One Piece?", "respuesta": "East Blue (Mar del Este)" },
+        { "valor": 600, "pregunta": "Dragon Ball ¿Dónde se encuentra la Habitación del Tiempo?", "respuesta": "En el palacion de Kamisama" },
+        { "valor": 800, "pregunta": "¿Cómo se llama la escuela en My Hero Academia?", "respuesta": "Academia U.A (Yūei Kōkō)" },
+        { "valor": 1000, "pregunta": "Dr. Stone ¿Cómo se llama el reino que funda Senku Ishigami?", "respuesta": "El Reino de la Ciencia (Kagaku no Ōkoku)" }
+      ]
+    },
+    {
+      "nombre": "Anime Clásico",
+      "preguntas": [
+        { "valor": 200, "pregunta": "¿Quién es la protagonista de Sailor Moon?", "respuesta": "Serena Tsukino (Usagi Tsukino)" },
+        { "valor": 400, "pregunta": "¿Qué tipo de Pokémon es Pikachu?", "respuesta": "Eléctrico" },
+        { "valor": 600, "pregunta": "¿En qué animal se transforma Ryoga Hibiki, el eterno rival de Ranma, cuando tiene contacto con el agua fría?", "respuesta": "Un cerdito negro (apodado P-chan)" },
+        { "valor": 800, "pregunta": "¿Quién es el espadachín protagonista de Rurouni Kenshin?", "respuesta": "Kenshin Himura" },
+        { "valor": 1000, "pregunta": "Caballeros del Zodiaco, ¿Quién repara las armaduras de bronce y se las fortalece?", "respuesta": "Mu de Aries" }
+      ]
+    }
+  ]
+}
