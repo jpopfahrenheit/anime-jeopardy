@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
 
-export default function ConfigPanel({ onStart }) {
+export default function ConfigPanel({ onStart, irAScoreControl }) {
   const [nombreJuego, setNombreJuego] = useState("Jornadas del Manga y el Anime");
   const [sets, setSets] = useState([]);
   const [setSeleccionado, setSetSeleccionado] = useState("");
-  const [cantidadEquipos, setCantidadEquipos] = useState(2);
-  const [logoSeleccionado, setLogoSeleccionado] = useState("");
   const [timerDuracion, setTimerDuracion] = useState(15);
 
-
-  // Cargar sets.json al iniciar
+  // 🔹 Cargar sets.json al iniciar
   useEffect(() => {
     fetch("/preguntas/sets.json")
       .then((res) => res.json())
@@ -30,11 +27,8 @@ export default function ConfigPanel({ onStart }) {
     onStart({
       nombreJuego,
       archivoPreguntas: setSeleccionado,
-      cantidadEquipos,
-      logoSeleccionado,
       timerDuracion: timerDuracion || 15
     });
-
   };
 
   return (
@@ -53,40 +47,6 @@ export default function ConfigPanel({ onStart }) {
         />
       </div>
 
-      {/* Logo */}
-      <div style={{ marginBottom: "20px" }}>
-        <label>Logo (opcional):</label><br />
-        <input
-          type="text"
-          placeholder="Ej: jornadas.png"
-          value={logoSeleccionado}
-          onChange={(e) => setLogoSeleccionado(e.target.value.trim())}
-          style={{ padding: "8px", width: "250px", marginTop: "5px" }}
-        />
-
-        {logoSeleccionado && (
-          <div style={{ marginTop: "10px" }}>
-            <img
-              src={`/logo/${logoSeleccionado}`}
-              alt="Preview Logo"
-              style={{
-                maxHeight: "80px",
-                objectFit: "contain",
-                border: "1px solid #444",
-                padding: "5px"
-              }}
-              onError={(e) => {
-                e.target.style.display = "none";
-              }}
-            />
-          </div>
-        )}
-
-        <div style={{ fontSize: "0.8rem", marginTop: "5px" }}>
-          Archivo debe estar en /public/logo/
-        </div>
-      </div>
-
       {/* Set de Preguntas */}
       <div style={{ marginBottom: "20px" }}>
         <label>Set de preguntas:</label><br />
@@ -103,22 +63,6 @@ export default function ConfigPanel({ onStart }) {
         </select>
       </div>
 
-      {/* Cantidad de Equipos */}
-      <div style={{ marginBottom: "20px" }}>
-        <label>Cantidad de equipos:</label><br />
-        {[2, 3, 4].map((num) => (
-          <label key={num} style={{ marginRight: "15px" }}>
-            <input
-              type="radio"
-              value={num}
-              checked={cantidadEquipos === num}
-              onChange={() => setCantidadEquipos(num)}
-            />
-            {num}
-          </label>
-        ))}
-      </div>
-
       {/* Duración del Timer */}
       <div style={{ marginBottom: "20px" }}>
         <label>Duración del timer (segundos):</label><br />
@@ -132,7 +76,6 @@ export default function ConfigPanel({ onStart }) {
         />
       </div>
 
-
       {/* Botón Iniciar */}
       <button
         className="btn-large"
@@ -142,6 +85,16 @@ export default function ConfigPanel({ onStart }) {
         🎮 Iniciar Partida
       </button>
 
+      {/* Control de Puntajes */}
+      <button
+        className="btn-large"
+        style={{ marginTop: "15px", backgroundColor: "#444" }}
+        onClick={irAScoreControl}
+      >
+        🎯 Control de Puntajes
+      </button>
+
+      {/* Reset Partida */}
       <button
         style={{
           marginTop: "15px",
@@ -162,11 +115,9 @@ export default function ConfigPanel({ onStart }) {
             window.location.reload();
           }
         }}
-
       >
         🗑 Reset Partida
       </button>
-
 
     </div>
   );

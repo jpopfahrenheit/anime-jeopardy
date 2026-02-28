@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Board from "./components/Board";
 import ConfigPanel from "./components/ConfigPanel";
+import ScoreControl from "./components/ScoreControl";
+import ScoreDisplay from "./components/ScoreDisplay";
 import "./App.css";
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
     }
   }, []);
 
+  // 🔹 CONFIG
   if (pantalla === "config") {
     return (
       <ConfigPanel
@@ -37,18 +40,36 @@ function App() {
           setProgreso(progresoGuardado);
           setPantalla("board");
         }}
-
-
+        irAScoreControl={() => setPantalla("score-control")}
       />
     );
   }
 
+  // 🔹 BOARD
   if (pantalla === "board") {
     return (
       <Board
         volver={() => setPantalla("config")}
         config={config}
         progresoInicial={progreso}
+        irAPuntajes={() => setPantalla("score-display")}
+      />
+    );
+  }
+
+  // 🔹 SCORE CONTROL (operador)
+  if (pantalla === "score-control") {
+  return (
+    <ScoreControl
+      volverAlJuego={() => setPantalla("config")}
+    />
+  );
+}
+
+  if (pantalla === "score-display") {
+    return (
+      <ScoreDisplay
+        volverAlJuego={() => setPantalla("board")}
       />
     );
   }

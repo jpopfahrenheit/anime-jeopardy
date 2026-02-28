@@ -2,23 +2,34 @@ import QuestionModal from "./QuestionModal";
 import { useEffect, useState } from "react";
 import "./Board.css";
 
-export default function Board({ volver, config, progresoInicial }) {
+export default function Board({ volver, config, progresoInicial, irAPuntajes }) {
 
   const [preguntaActiva, setPreguntaActiva] = useState(null);
   const [data, setData] = useState(null);
   const [progreso, setProgreso] = useState(progresoInicial || {});
 
-  // 🔹 Atajo secreto: Ctrl + Shift + B
+  // 🔹 Atajos teclado
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "b") {
-        volver(); // vuelve directo, sin confirmación
+
+      // Volver al config
+      if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "b") {
+        e.preventDefault();
+        volver();
+      }
+
+      // Ir a pantalla de puntajes
+      if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "s") {
+        e.preventDefault();
+        if (irAPuntajes) {
+          irAPuntajes();
+        }
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [volver, irAPuntajes]);
 
   // 🔹 Cargar preguntas
   useEffect(() => {
@@ -28,7 +39,6 @@ export default function Board({ volver, config, progresoInicial }) {
       .then((res) => res.json())
       .then((json) => setData(json));
   }, [config]);
-
 
   // 🔹 Guardado automático
   useEffect(() => {
@@ -52,36 +62,44 @@ export default function Board({ volver, config, progresoInicial }) {
   return (
     <div className="board-container">
 
-      <div className="board-header">
-        <div className="header-spacer"></div>
-
+      {/* HEADER SIN LOGO */}
+      <div className="board-header" style={{ position: "relative" }}>
+        
         <h1 className="board-title">
           {config?.nombreJuego || "Jeopardy Anime"}
         </h1>
 
-        <div className="header-logo">
-          {config?.logoSeleccionado && (
-            <img
-              src={`/logo/${config.logoSeleccionado}`}
-              alt="Logo"
-              className="board-logo"
-            />
-          )}
-        </div>
+        <button
+          className="modal-button"
+          style={{
+            position: "absolute",
+            right: "20px",
+            top: "20px",
+            padding: "8px 15px",
+            fontSize: "0.9rem"
+          }}
+          onClick={irAPuntajes}
+        >
+          🏆 Puntajes
+        </button>
+
       </div>
 
+      {/* TABLERO */}
       <div
         className="board-grid"
         style={{
           gridTemplateColumns: `repeat(${categorias.length}, 1fr)`
         }}
       >
+        {/* CATEGORÍAS */}
         {categorias.map((cat) => (
           <div key={cat.nombre} className="category">
             {cat.nombre}
           </div>
         ))}
 
+        {/* PREGUNTAS */}
         {Array.from({ length: cantidadFilas }).map((_, fila) =>
           categorias.map((cat, colIndex) => {
             const pregunta = cat.preguntas[fila];
@@ -115,7 +133,7 @@ export default function Board({ volver, config, progresoInicial }) {
 
       <QuestionModal
         pregunta={preguntaActiva}
-        duracion={config.timerDuracion}
+        duracion={config?.timerDuracion}
         onClose={() => setPreguntaActiva(null)}
       />
 
