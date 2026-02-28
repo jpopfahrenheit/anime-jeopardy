@@ -1,14 +1,6 @@
 [
   {
     "id": "1",
-    "nombre": "Demo General"
-  },
-  {
-    "id": "2",
-    "nombre": "Lo mismo pero con otro nombre"
-  },
-  {
-    "id": "3",
-    "nombre": "Para mejorar"
+    "nombre": "Trivia General"
   }
 ]
