@@ -23,9 +23,10 @@
 }
 
 .modal-value {
-  font-size: 2rem;
+  font-size: 3rem;
   color: gold;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .modal-question {
